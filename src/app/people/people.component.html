@@ -1,0 +1,40 @@
+
+<!-- TABLE CONSTRUCTION-->
+<table id="datatable" class="table table-striped" role="grid">
+  <div id="load" class="loading">
+    <button id="spinner" class="btn" disabled>
+      <span class="spinner-border spinner-border-sm-md-lg"></span>
+      Loading...
+    </button>
+  </div>
+  <thead>
+    <!-- TABLE HEADING -->
+    <tr role="row">
+        <th tabindex="0" aria-label="name">Name ({{ rows }} rows)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- TABLE DATA -->
+    <tr *ngFor="let person of people" role="row">
+        <td (click)="openModal(person.name.title, person.name.first, person.name.last)">
+          {{ person.name.title }} {{ person.name.first }} {{ person.name.last }}
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- MODAL WINDOW-->
+<div id="personModal" class="modal modal-dialog-centered">
+  <div class="modal-content">
+    <span class="close" (click)="hide()" aria-label="close">&times;</span>
+    <div class="personDetails">
+      <p>Name: {{ fullName }}</p>
+      <p>Phone: {{ phone }}</p>
+      <p>Cell: {{ cell }}</p>
+    </div>
+  </div>
+</div>
+
+<div id="error" style="display: none">
+  <p>Something went wrong. Error: {{ errorName }}, error code: '{{ errorStatus }}'</p>
+</div>

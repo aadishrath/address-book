@@ -1,0 +1,29 @@
+<ng-container class="about-container">
+  <div class="about-content">
+    <p>This is a dummy about page. It is just created to show SPA (single page app) using the Angular's router module.
+       Click on the <a href="home">home</a> tab to view the list of people fetched from the 'Random User API'
+       <a href="https://randomuser.me/api/?results=50">URL</a>.<br><br>
+       It fetched random {{ rows }} people's information. However, I only populate their name, phone and cell. Each person's
+       details are shown in a modal window to present it in a different way.<br><br>
+       The information shown on the page can be confirmed with the api response in the console.
+       <br>
+       API response below: <button id="showResponse" class="btn .btn-primary" (click)="showResponse()">Show</button>
+    </p>
+  </div>
+
+  <div id="load" class="loading">
+    <button disabled>
+      <span class="spinner-border spinner-border-sm-md-lg"></span>
+      Loading...
+    </button>
+  </div>
+
+  <div id="api-response" class="api-response">
+    <div class="api-response-header">
+      <button class="close" (click)="hide()" aria-label="close" tabindex="0">&times;</button>
+    </div>
+    <div class="api-response-body">
+      <p>{{ apiResponse }}</p>
+    </div>
+  </div>
+</ng-container>
